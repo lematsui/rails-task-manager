@@ -1,0 +1,7 @@
+<h1><%= @task.title %></h1>
+<h2><%= @task.details %></h2>
+<% message = "This task is not completed yet" %>
+<% checked = "" %>
+<% message = "This task is completed" if @task.completed = true %>
+<% checked = "checked" if @task.completed = true %>
+<input type="checkbox" <%= "#{checked}" %>><%= "#{message}" %><br>
