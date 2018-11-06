@@ -1,5 +1,11 @@
-<h1>My tasks</h1>
-<% @tasks.each do |task|%>
-<% checked = "checked" if task.completed == true  %>
-<input type="checkbox" <%= "#{checked}" %>><%= link_to task.title, task_path(task) %><br>
-<% end %>
+<div class="container">
+  <h1>CODING BUS DESK</h1>
+  <% @tasks.each do |task|%>
+    <% checked = "checked" if task.completed %>
+    <input type="checkbox" <%= "#{checked}" %> disabled><%= link_to task.title, task_path(task) %>
+    <%= link_to delete_path(task) do %>
+      <i class="fab fa-grunt"></i>
+    <% end %><br>
+  <% end %>
+  <%= link_to "Add a task", new_path %>
+</div>
